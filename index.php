@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 require_once("src/Utils/debug.php");
+require_once("src/View.php");
 
 // if (!empty($_GET['action'])) {
 //     $action = $_GET['action'];
@@ -13,10 +14,7 @@ require_once("src/Utils/debug.php");
 // }
 $action = $_GET['action'] ?? null; // krótszy zapis if-a
 
+$view = new View();
+$view->render($action);
 
-// logika odpowiedzialna za wyświetlenie widoku
-if ($action === 'create') {
-    include_once("templates/pages/create.php");
-} else {
-    include_once("templates/pages/list.php"); 
-} 
+//dump($action);
